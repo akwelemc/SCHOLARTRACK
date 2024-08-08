@@ -27,7 +27,6 @@
                 <div class="course-list">
                     <h3>Available Courses</h3>
                     <ul id="availableCourses">
-                        <?php echo getCourseList(); ?>
                     </ul>
                 </div>
                 <div class="selected-courses">
