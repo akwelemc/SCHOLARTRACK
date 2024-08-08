@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+header {
+    background: #9b1f24;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.course-planning {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    width: 80%;
+    max-width: 1000px;
+}
+
+.course-planning h1 {
+    color: #607d8b;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.course-planning p {
+    color: #607d8b;
+    margin-bottom: 30px;
+}
+
+.planning-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.filter-section, .course-list, .selected-courses {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    color: #9b1f24;
+    margin-bottom: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid #9b1f24;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.filter-section select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: 1px solid #607d8b;
+    color: #607d8b;
+    background: transparent;
+    outline: none;
+}
+
+.course-list ul, .selected-courses ul {
+    list-style: none;
+    text-align: left;
+}
+
+.course-list ul li, .selected-courses ul li {
+    margin-bottom: 15px;
+}
+
+.course-list ul li input {
+    margin-right: 10px;
+}
+
+.submit-btn {
+    background: #9b1f24;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.submit-btn:hover {
+    background-color: #800020;
+}
+
+footer {
+    background: #9b1f24;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+/* General styles for course list items */
+.course-list ul li,
+.selected-courses ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.course-list ul li:last-child,
+.selected-courses ul li:last-child {
+    border-bottom: none;
+}
+
+/* Style for the 'Select' button */
+.course-list button {
+    background-color: #4caf50; /* Green background */
+    color: white; /* White text */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.course-list button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Style for the 'Remove' button */
+.selected-courses button {
+    background-color: #f44336; /* Red background */
+    color: white; /* White text */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.selected-courses button:hover {
+    background-color: #e53935; /* Darker red on hover */
+}
+
+/* Button alignment */
+.course-list button,
+.selected-courses button {
+    margin-left: 10px;
+}

@@ -1,0 +1,145 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: white;
+    border-bottom: 1px solid lightgrey;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+header .logo span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #800020;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+header nav ul li .donate-btn {
+    background-color: #800020;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Audit section styles */
+.audit {
+    padding: 60px 20px;
+    background-color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.audit h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #800020;
+    text-align: center;
+}
+
+.audit h2 {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.course-category {
+    margin-bottom: 40px;
+}
+
+.course-category h3 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #800020;
+    display: inline-block;
+}
+
+.course {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.course span {
+    font-size: 1em;
+    color: #333;
+}
+
+.course select {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #800020;
+    border-radius: 5px;
+}
+
+/* Submit section styles */
+.submit-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.submit-section button {
+    background-color: #800020;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-section button:hover {
+    background-color: #670017;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-top: 1px solid lightgrey;
+}

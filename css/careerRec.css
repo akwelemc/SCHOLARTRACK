@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: white;
+    border-bottom: 1px solid lightgrey;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+header .logo span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #800020;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    width: 100%;
+    flex: 1;
+}
+
+.container h1 {
+    font-size: 3em;
+    color: #800020;
+    margin-bottom: 20px;
+}
+
+.chatbox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.chatbox .conversation {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.chatbox .conversation p {
+    margin: 0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.chatbox .conversation .user {
+    background-color: #FFD6D6;
+    text-align: right;
+}
+
+.chatbox .conversation .bot {
+    background-color: #f9f9f9;
+}
+
+.chatbox input, .chatbox button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.chatbox button {
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+}
+
+.chatbox button:hover {
+    background-color: #333333;
+}
