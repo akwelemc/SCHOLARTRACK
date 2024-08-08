@@ -27,11 +27,6 @@
                 <div class="course-list">
                     <h3>Available Courses</h3>
                     <ul id="availableCourses">
-                        <li id="course1" data-credits="3.0" data-status="available" data-prerequisites="[]">Introduction to Programming (3.0 credits)</li>
-                        <li id="course2" data-credits="4.0" data-status="available" data-prerequisites="[1]">Data Structures (4.0 credits)</li>
-                        <li id="course3" data-credits="3.0" data-status="available" data-prerequisites="[1]">Algorithms (3.0 credits)</li>
-                        <li id="course4" data-credits="2.5" data-status="available" data-prerequisites="[]">Discrete Mathematics (2.5 credits)</li>
-                        <li id="course5" data-credits="3.5" data-status="available" data-prerequisites="[2, 3]">Operating Systems (3.5 credits)</li>
                     </ul>
                 </div>
                 <div class="selected-courses">
@@ -49,5 +44,7 @@
     </footer>
 
     <script src="../js/coursePlanning.js"></script>
+    
+
 </body>
 </html>
