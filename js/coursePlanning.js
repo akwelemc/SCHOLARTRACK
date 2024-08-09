@@ -1,107 +1,90 @@
-// Function to handle course selection
-function selectCourse(courseID, courseName, credits) {
-    const availableCoursesList = document.getElementById('availableCourses');
-    const selectedCoursesList = document.getElementById('selectedCourses');
-    const selectedCourses = selectedCoursesList.querySelectorAll('li');
-    
-    // Check if the selected course exceeds the credit limit
-    let totalCredits = 0;
-    selectedCourses.forEach(course => {
-        const creditText = course.textContent.match(/\(([^)]+)\)/);
-        if (creditText) {
-            totalCredits += parseFloat(creditText[1]);
-        }
-    });
+let totalCredits = 0; // Declare totalCredits in the global scope
 
-    if (totalCredits + parseFloat(credits) > 4.5) {
-        alert('You cannot select more than 4.5 credits.');
-        return;
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    // Fetch available courses and populate the list
+    fetch('../action/load_courses.php')
+        .then(response => response.json())
+        .then(data => {
+            console.log('Available courses:', data);
+            const availableCourses = document.getElementById('availableCourses');
 
-    // Get the course element
-    const courseElement = document.getElementById(courseID);
-    const status = courseElement.dataset.status;
-    const prerequisites = JSON.parse(courseElement.dataset.prerequisites);
+            // Filter out completed courses
+            const filteredCourses = data.filter(course => course.status !== 'Completed');
 
-    // Check if prerequisites are completed
-    const prerequisitesCompleted = prerequisites.every(prerequisiteID => {
-        const prerequisiteElement = document.getElementById(prerequisiteID);
-        return prerequisiteElement && prerequisiteElement.dataset.status === 'completed';
-    });
+            filteredCourses.forEach(course => {
+                const li = document.createElement('li');
+                li.textContent = `${course.name} (${course.credits} credits)`;
+                li.dataset.courseId = course.id;
+                li.dataset.courseCredits = course.credits;
 
-    if (!prerequisitesCompleted) {
-        alert('You must complete all prerequisite courses before selecting this course.');
-        return;
-    }
+                // Create select button
+                const selectBtn = document.createElement('button');
+                selectBtn.textContent = 'Select';
+                selectBtn.addEventListener('click', () => {
+                    const courseCredits = parseFloat(course.credits);
+                    if (totalCredits + courseCredits <= 4.5) {
+                        addToSelectedCourses(course.id, course.name, courseCredits, li);
+                        li.style.display = 'none'; // Hide from available courses
+                        totalCredits += courseCredits; // Update the total credits
+                    } else {
+                        alert('You cannot select more than 4.5 credits.');
+                    }
+                });
 
-    // Move course to selected courses
+                li.appendChild(selectBtn);
+                availableCourses.appendChild(li);
+            });
+        })
+        .catch(error => console.error('Error loading courses:', error));
+});
+
+function addToSelectedCourses(courseId, courseName, courseCredits, availableCourseElement) {
+    const selectedCourses = document.getElementById('selectedCourses');
     const li = document.createElement('li');
-    li.id = courseID; // Set the ID for removal purposes
-    li.textContent = courseName + ' (' + credits + ' credits)';
+    li.textContent = `${courseName} (${courseCredits} credits)`;
+    li.dataset.courseId = courseId;
+    li.dataset.courseCredits = courseCredits;
+
+    // Create remove button
     const removeBtn = document.createElement('button');
     removeBtn.textContent = 'Remove';
-    removeBtn.onclick = function() { removeCourse(courseID, courseName, credits); };
-    li.appendChild(removeBtn);
-    selectedCoursesList.appendChild(li);
-
-    // Hide the course in the available list
-    courseElement.style.display = 'none';
-}
-
-// Function to handle course removal
-function removeCourse(courseID, courseName, credits) {
-    const selectedCoursesList = document.getElementById('selectedCourses');
-    const courseToRemove = Array.from(selectedCoursesList.querySelectorAll('li')).find(li => li.id === courseID);
-
-    if (courseToRemove) {
-        selectedCoursesList.removeChild(courseToRemove);
-
-        // Show the course back in the available list
-        const courseElement = document.getElementById(courseID);
-        if (courseElement) {
-            courseElement.style.display = '';
-        }
-    }
-}
-
-// Function to handle course plan submission
-function submitCoursePlan() {
-    const selectedCourses = document.querySelectorAll('#selectedCourses li');
-    const coursePlan = [];
-
-    selectedCourses.forEach(course => {
-        const courseID = course.id;
-        const credits = course.textContent.match(/\(([^)]+)\)/)[1];
-        coursePlan.push({ courseID, credits });
+    removeBtn.addEventListener('click', () => {
+        removeFromSelectedCourses(courseId, courseCredits, li, availableCourseElement);
     });
 
-    const data = {
-        user_id: 101, // This should be dynamically set based on user session
-        courses: coursePlan
-    };
+    li.appendChild(removeBtn);
+    selectedCourses.appendChild(li);
+}
 
-    fetch('../action/submit_course_plan.php', {
+function removeFromSelectedCourses(courseId, courseCredits, liElement, availableCourseElement) {
+    // Remove the course from the selected list
+    liElement.remove();
+
+    // Unhide the corresponding course in the available courses
+    availableCourseElement.style.display = 'block';
+
+    // Deduct the course credits from the total
+    totalCredits -= courseCredits;
+}
+
+function submitCoursePlan() {
+    const selectedCourses = document.getElementById('selectedCourses').querySelectorAll('li');
+    const courseIds = Array.from(selectedCourses).map(li => li.dataset.courseId);
+
+    fetch('../action/save_course_plan.php', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: JSON.stringify(data)
+        body: `course_ids=${JSON.stringify(courseIds)}`
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(result => {
-        if (result.success) {
+    .then(response => response.text())
+    .then(text => {
+        if (text.trim() === 'Course plan submitted successfully.') {
             alert('Course plan submitted successfully!');
         } else {
-            alert('Failed to submit course plan: ' + result.error);
+            alert('Error submitting course plan.');
         }
     })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred: ' + error.message);
-    });
+    .catch(error => console.error('Error submitting course plan:', error));
 }
