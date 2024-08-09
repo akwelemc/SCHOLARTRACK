@@ -43,7 +43,7 @@ function askMajor() {
 }
 
 function askCurrentCourses() {
-    addMessageToConversation("What courses or electives have you taken so far? <a href='../view/courses.php' target='_blank'>here!", 'bot');
+    addMessageToConversation("What courses or electives have you taken so far? <a href='../career/courses.php' target='_blank'>here!", 'bot');
     state = 'currentCourses';
 }
 
