@@ -27,9 +27,7 @@
                 <div class="course-list">
                     <h3>Available Courses</h3>
                     <ul id="availableCourses">
-                        <?php require_once("../functions/course_fxns.php");
-                              echo getCourseList(); 
-                        ?>
+                        <!-- Course options will be populated here -->
                     </ul>
                 </div>
                 <div class="selected-courses">
@@ -42,7 +40,11 @@
             <button class="submit-btn" onclick="submitCoursePlan()">Submit Course Plan</button>
         </section>
     </main>
-    
+
+    <footer>
+        <p>&copy; 2024 ScholarTrack. All rights reserved.</p>
+    </footer>
+
     <script src="../js/coursePlanning.js"></script>
 </body>
 </html>
