@@ -15,7 +15,7 @@ body {
 }
 
 header {
-    background: #9b1f24;
+    background: #600015;
     color: white;
     padding: 10px 20px;
     display: flex;
@@ -55,6 +55,21 @@ main {
     padding: 20px;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #600015;
+    margin-bottom: 30px;
+}
+
 .course-planning {
     background: #fff;
     border-radius: 10px;
@@ -91,7 +106,7 @@ main {
 }
 
 h3 {
-    color: #9b1f24;
+    color: #600015;
     margin-bottom: 15px;
     font-weight: 600;
     border-bottom: 2px solid #9b1f24;
@@ -124,7 +139,7 @@ h3 {
 }
 
 .submit-btn {
-    background: #9b1f24;
+    background: #600015;
     color: white;
     padding: 15px 30px;
     border: none;
@@ -185,7 +200,7 @@ footer {
 
 /* Style for the 'Remove' button */
 .selected-courses button {
-    background-color: #f44336; /* Red background */
+    background-color: #600015; /* Red background */
     color: white; /* White text */
     border: none;
     padding: 10px 15px;
@@ -212,5 +227,70 @@ li {
 li button {
     margin-left: 10px;
     flex-shrink: 0; /* Ensure button size is consistent */
+}
+
+/* Specific styles for course grade calculator */
+#course-grade-form {
+    margin-top: 20px;
+}
+
+#course-grade-form .assignment {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#course-grade-form .assignment input {
+    margin-right: 10px;
+}
+
+#course-grade-form button {
+    background-color: #600015; /* Red background for remove button */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+#course-grade-form button:hover {
+    background-color: #600015; /* Darker red on hover */
+}
+
+#course-grade {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #607d8b; /* Consistent color with the rest of the page */
+}
+
+/* Additional styles for the course grade calculator */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #607d8b;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #607d8b;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #9b1f24;
 }
 

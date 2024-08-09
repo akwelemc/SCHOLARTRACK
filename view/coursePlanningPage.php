@@ -1,13 +1,3 @@
-<?php
-require_once("../functions/course_fxns.php");
-
-// Enable error reporting for debugging
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,13 +27,13 @@ error_reporting(E_ALL);
                 <div class="course-list">
                     <h3>Available Courses</h3>
                     <ul id="availableCourses">
-                        <?php echo getCourseList(); ?>
+                        <!-- Course options will be populated here -->
                     </ul>
                 </div>
                 <div class="selected-courses">
                     <h3>Selected Courses</h3>
                     <ul id="selectedCourses">
-                        <!-- List selected courses here -->
+                        <!-- Selected courses will be displayed here -->
                     </ul>
                 </div>
             </div>
@@ -56,7 +46,5 @@ error_reporting(E_ALL);
     </footer>
 
     <script src="../js/coursePlanning.js"></script>
-
-
 </body>
 </html>

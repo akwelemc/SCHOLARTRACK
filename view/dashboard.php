@@ -49,6 +49,7 @@ try {
                 <li><a href="../view/degree_audit.php">Degree Audit</a></li>
                 <li><a href="../career/careerRec.php">Career Recommendations</a></li>
                 <li><a href="../view/coursePlanningPage.php">Course Planning</a></li>
+                <li><a href="../view/course_grade_calculator.php">Course Grade Calculator</a></li>
                 <li><a href="../view/personalPlanner.php">Personal Planner</a></li>
                 <li><a href="../action/logout.php" class="donate-btn">Logout</a></li>
             </ul>
