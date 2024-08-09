@@ -1,13 +1,3 @@
-<?php
-require_once("../functions/course_fxns.php");
-
-// Enable error reporting for debugging
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +27,9 @@ error_reporting(E_ALL);
                 <div class="course-list">
                     <h3>Available Courses</h3>
                     <ul id="availableCourses">
-                        <?php echo getCourseList(); ?>
+                        <?php require_once("../functions/course_fxns.php");
+                              echo getCourseList(); 
+                        ?>
                     </ul>
                 </div>
                 <div class="selected-courses">
