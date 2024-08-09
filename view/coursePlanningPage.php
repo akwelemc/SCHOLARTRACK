@@ -42,11 +42,7 @@
             <button class="submit-btn" onclick="submitCoursePlan()">Submit Course Plan</button>
         </section>
     </main>
-
-    <footer>
-        <p>&copy; 2024 ScholarTrack. All rights reserved.</p>
-    </footer>
-
+    
     <script src="../js/coursePlanning.js"></script>
 
 
