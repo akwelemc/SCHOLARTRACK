@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db = 'degree_audit';
+$db = 'degree_audit2';
 $user = 'root'; // Update with your database username
 $pass = ''; // Update with your database password
 
